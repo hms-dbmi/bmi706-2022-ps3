@@ -11,14 +11,14 @@ Please make sure to have the following downloaded and installed on your machine 
 - [Git](https://git-scm.com/download)
 - [Anaconda](https://docs.anaconda.com/anaconda/install/)
 
-If you have a preferred text editor and/or know how to manage python virtual environments, please view these requirements
+> If you have a preferred text editor and/or know how to manage python virtual environments, please view these requirements
 as recommendations.
 
 ### Getting started
 
 #### Create **private** GitHub repo from `hms-dbmi/bmi706-2022-ps3`
 
-In order to work independently of your classmates, we ask that you create a private GitHub repository for this template repo.
+In order to work independently of your classmates, we ask that you create a **private GitHub repository** for this template repo.
 Select the **Download ZIP** option to download the archive for this folder.
 
 <img width="1024" src="https://user-images.githubusercontent.com/24403730/162062582-25a89e2f-0ec2-4b2f-8c87-2f39462d0046.png">
@@ -56,8 +56,8 @@ Let's practice making a commit by replacing "Hello, world" with "Hello, `<your n
 
 <img width="1024" src="https://user-images.githubusercontent.com/24403730/162011310-65828f46-b4a1-4d35-a74d-6aa2c54f260b.png">
 
-> Note how the file tab is now yellow with an "M", signifing that it has been modified. The **Source Control** icon in the 
-> sidebar additionally has shows a 1, indicating that 1 file has changed.
+> Note how the file tab for `README.md` is now yellow with an "M", signifing that it has been modified. The **Source Control** icon in the 
+> sidebar additionally has shows a `1`, indicating that `1` file has changed.
 
 - Click the **Source Control** icon in the sidebar and enter *Message* describing the changes we've made. Click the 
 "Commit" check mark to stage and commit our changes.
@@ -71,9 +71,9 @@ Let's practice making a commit by replacing "Hello, world" with "Hello, `<your n
 
 ### Developing with `streamlit`
 
-You'll need to set up a Python environment for working your Streamlit application. Streamlit's only officially-supported environment
+You'll need to set up a Python environment for working your Streamlit application locally. Streamlit's only officially-supported environment
 manager on Windows, macOS, and linux is [Anaconda Navigator](https://docs.anaconda.com/anaconda/navigator/). Please make sure you 
-have this installed. (The following is adapted from Streamlit's [documentation](https://docs.streamlit.io/library/get-started/installation))
+have this installed. (The following is adapted from Streamlit's [documentation](https://docs.streamlit.io/library/get-started/installation).)
 
 #### Create a new Python environment with Streamlit
 
@@ -111,6 +111,5 @@ Streamlit's Hello app should appear in a new tab in your web browser.
 streamlit run streamlit_app.py
 ```
 
-This will open the template streamlit app in the web browser.
-
-
+This will open the template streamlit app in the web browser. You can now start editing the contents
+of `streamlit_app.py`, and refresh the page in your web browser we see changes.
