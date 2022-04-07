@@ -26,11 +26,13 @@ df["Rate"] = df["Deaths"] / df["Pop"] * 100_000
 
 # }}
 
+
 @st.cache
 def load_data():
     ## {{ CODE HERE }} ##
-    df = ... # remove this line
+    df = ...  # remove this line
     return df
+
 
 # Uncomment the next line when finished
 # df = load_data()
@@ -40,28 +42,39 @@ def load_data():
 
 st.write("## Age-specific cancer mortality rates")
 
-
 ### P2.1 ###
-year = 2018 # replace with st.slider
+# replace with st.slider
+year = 2012
 subset = df[df["Year"] == year]
 ### P2.1 ###
 
 
 ### P2.2 ###
-sex = "M" # replace with st.radio
+# replace with st.radio
+sex = "M"
 subset = subset[subset["Sex"] == sex]
 ### P2.2 ###
 
 
 ### P2.3 ###
-# filter for only the countries which contain data for the selected year
-countries = ["Sweden", "Thailand"] # replace with st.multiselect
+# replace with st.multiselect
+# (hint: can use current hard-coded values below as as `default` for selector)
+countries = [
+    "Austria",
+    "Germany",
+    "Iceland",
+    "Spain",
+    "Sweden",
+    "Thailand",
+    "Turkey",
+]
 subset = subset[subset["Country"].isin(countries)]
 ### P2.3 ###
 
 
 ### P2.4 ###
-cancer = "Leukaemia"
+# replace with st.selectbox
+cancer = "Malignant neoplasm of stomach"
 subset = subset[subset["Cancer"] == cancer]
 ### P2.4 ###
 
@@ -80,12 +93,20 @@ ages = [
 
 chart = alt.Chart(subset).mark_bar().encode(
     x=alt.X("Age", sort=ages),
-    y=alt.Y("Rate", title="Mortality rate per 100,000"),
+    y=alt.Y("Rate", title="Mortality rate per 100k"),
     color="Country",
     tooltip=["Rate"],
 ).properties(
-    title=f"{cancer} mortality rates for {'males' if sex is 'M' else 'females'} in {year}",
+    title=f"{cancer} mortality rates for {'males' if sex == 'M' else 'females'} in {year}",
 )
 ### P2.5 ###
 
 st.altair_chart(chart, use_container_width=True)
+
+countries_in_subset = subset["Country"].unique()
+if len(countries_in_subset) != len(countries):
+    if len(countries_in_subset) == 0:
+        st.write("No data avaiable for given subset.")
+    else:
+        missing = set(countries) - set(countries_in_subset)
+        st.write("No data available for " + ", ".join(missing) + ".")
